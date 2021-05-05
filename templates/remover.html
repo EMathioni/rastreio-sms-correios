@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Remover rastreio</title>
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+    <meta charset="utf-8">
+    <style type="text/css">
+    #remove{
+        background-image:rgba(254,213,37,255);
+        box-shadow: 0 0 0 0;
+        border:0 none;
+        outline:0;
+    }
+    body{
+        background-color:rgba(254,213,37,255)
+    }
+    #img-cor1{
+        position: relative;
+        left: -20px;
+        top: -10px;
+    }
+    .alerta {
+        padding: 25px;
+        border: 1px solid gray;
+        border-radius: 3px;
+        margin: 10px;
+        font-size: 18px;
+}
+    .error {
+        border-color: #e8273b;
+        color: #FFF;
+        background-color: #ed5565;
+}
+</style>
+</head>
+
+<body>
+<center>
+<h1>Remover rastreio</h1>
+    <center><input type="text" placeholder="Insira o codigo de rastreio" name="code"></center>
+    <center><button id="teste">Remover</button> <input type="button" value="Voltar" onClick="window.location.href = '/'"> </center>
+    <img src="https://i.pinimg.com/originals/83/23/8c/83238c8117658fe5ee2cafb479b0eb68.png" width="800" height="400" id="img-cor1">
+</center>
+
+
+<main>
+    {% for codde in code_list %}
+        <div>
+            <h3>Código: {{codde.code}}</h3> <h3>Telefone: {{codde.tel}}</h3>
+        </div>
+    <hr />
+    {% endfor %}
+  </main>
+<script src="https://www.jsdelivr.com/package/npm/sweetalert2"></script>
+<script type="text/javascript">
+    document.getElementById('remove').onclick = function(){
+  swal('Sucesso!', 'Código removido', 'success')
+};
+</script>
+</body>
+</html>
