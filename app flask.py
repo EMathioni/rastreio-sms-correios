@@ -4,8 +4,8 @@ import requests
 from bs4 import BeautifulSoup
 
 app = Flask(__name__)
-account_sid = 'AC552db2b868861a0d8f21fc3f0cee615b'
-auth_token = 'ff17eb32c96d12391847b1d437fae65f'
+account_sid = '' #retirado por razoes de segurança
+auth_token = '' #retirado por razoes de segurança
 client = Client(account_sid, auth_token)
 
 code_list = []
@@ -33,7 +33,7 @@ def search_code():
     if 'DistribuiÃ§Ã£o' in status_code.text or 'destinatÃ¡rio' in status_code.text or 'PaÃ­s' in status_code:
       modified = status_code.text.replace('DistribuiÃ§Ã£o', 'Distribuição').replace('destinatÃ¡rio', 'destinatário')\
         .replace('PaÃ­s', 'País').replace('trÃ¢nsito', 'trânsito')
-    #client.messages.create(body=f'Último Status do Objeto:\n{modified}', from_='+15035126289', to=f'{tel}')
+    client.messages.create(body=f'Último Status do Objeto:\n{modified}', from_='<seu telefone>', to=f'{tel}')
     rastreio = {
       'code': code,
       'tel': tel
